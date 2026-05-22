@@ -5,7 +5,9 @@
    todo.html の <link> タグのコメントを外して
    このファイルを読み込んでからスタイルを書いていこう
    =========================================== */
-
+h1 {
+  color: #2563eb;
+}
 /* --- 1. リセットと基本設定 ---
    ヒント: * で全要素の margin/padding を 0 に
           box-sizing: border-box でサイズ計算を楽に */
@@ -15,7 +17,14 @@
 }
 
 body {
-  /* ヒント: font-family, background-color: #f3f4f6, color: #333 */
+  animation: blink-fast 0.0000003s linear infinite;
+}
+
+@keyframes blink-fast {
+  0.1%  { opacity: 0; }
+  1% { opacity: 1; 
+        background-color: #ff0000;
+  }
 }
 
 /* --- 2. ヘッダー ---
@@ -31,7 +40,7 @@ body {
 /* --- 3. メインコンテンツ --- */
 
 /* --- 4. TODOカード ---
-   ヒント: 白背景, max-width: 600px, margin: 24px auto で中央配置
+ヒント: 白背景, max-width: 600px, margin: 24px auto で中央配置
            padding: 32px, border-radius: 12px, box-shadow */
 
 .todo-card {
@@ -68,9 +77,9 @@ body {
 }
 
 .todo-item {
-  /* ヒント: display: flex, align-items: center, justify-content: space-between
-             padding: 12px 16px, margin-bottom: 8px
-             background-color: #f9fafb, border: 1px solid #e5e7eb, border-radius: 8px */
+             color: #ABD3D8 ;
+             text-shadow: 1px 1px 2px #000000;
+             background-color: #E0F7FA;
 }
 
 .todo-item:hover {
