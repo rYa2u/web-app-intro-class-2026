@@ -1,157 +1,197 @@
 /* ===========================================
-   TODOアプリ CSS - 実習用スターター
-   第3回 CSS基礎
-
-   todo.html の <link> タグのコメントを外して
-   このファイルを読み込んでからスタイルを書いていこう
+   TODOアプリ CSS（第3回の正解）
+   このファイルは完成済みです。編集不要です。
    =========================================== */
-h1 {
- 
-}
-/* --- 1. リセットと基本設定 ---
-   ヒント: * で全要素の margin/padding を 0 に
-          box-sizing: border-box でサイズ計算を楽に */
 
+/* --- リセットと基本設定 --- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body{
-    display: flex; justify-content: center;
-    font-family: "Helvetica Neue", Arial, "Hiragino Sans",
-               "Noto Sans JP", sans-serif;
-    background-color: #f3f4f6;
-    color: #333;
+body {
+  font-family:
+    "Helvetica Neue", Arial, "Hiragino Sans", "Noto Sans JP", sans-serif;
+  background-color: #f3f4f6;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
-/* --- 2. ヘッダー ---
-   ヒント: 背景色 #2563eb, 文字色 white, padding, text-align: center */
 
+/* --- ヘッダー --- */
 .header {
-
-
+  background-color: #2563eb;
+  color: white;
+  padding: 16px 24px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .header h1 {
-  /* ヒント: font-size: 24px */
+  font-size: 24px;
+  font-weight: bold;
 }
 
-/* --- 3. メインコンテンツ --- */
-
-/* --- 4. TODOカード ---
-ヒント: 白背景, max-width: 600px, margin: 24px auto で中央配置
-           padding: 32px, border-radius: 12px, box-shadow */
-
+/* --- TODOカード --- */
 .todo-card {
   background-color: white;
   max-width: 600px;
-  margin: 40px auto;       /* 上下40px、左右は自動で中央配置 */
+  width: 100%;
+  margin: 24px auto;
   padding: 32px;
-  border-radius: 12px;     /* 角を丸くする */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);  /* 影 */
-}
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  flex: 1;
 }
 
-/* --- 5. 入力エリア ---
-   ヒント: display: flex で横並び, gap: 8px, margin-bottom: 24px */
-
+/* --- 入力エリア --- */
 .input-area {
-
-    display: flex; gap: 8px;
-
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
 }
 
 .todo-input {
-  flex: 1;                 
+  flex: 1;
   padding: 12px 16px;
   border: 2px solid #d1d5db;
   border-radius: 8px;
   font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
 }
 
 .todo-input:focus {
-    border-color: #2563eb, outline: none 
+  border-color: #2563eb;
+}
+
+.todo-input::placeholder {
+  color: #9ca3af;
 }
 
 .todo-button {
-
   padding: 12px 24px;
   background-color: #2563eb;
   color: white;
   border: none;
   border-radius: 8px;
-  cursor: pointer;     
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  white-space: nowrap;
 }
 
 .todo-button:hover {
-  background-color: #1d4ed8 
+  background-color: #1d4ed8;
 }
 
-/* --- 6. TODOリスト --- */
-
+/* --- TODOリスト --- */
 .todo-list {
-  /* ヒント: list-style: none */
+  list-style: none;
 }
 
 .todo-item {
-
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  transition: background-color 0.2s;
 }
 
 .todo-item:hover {
-   background-color: #f9fafb;
+  background-color: #eff6ff;
 }
 
-/* --- 7. TODO項目の内容 --- */
-
+/* --- TODO項目の内容 --- */
 .todo-label {
-  /* ヒント: display: flex, align-items: center, gap: 12px, cursor: pointer, flex: 1 */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  flex: 1;
 }
 
 .todo-checkbox {
-  /* ヒント: width: 20px, height: 20px, cursor: pointer */
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #2563eb;
 }
 
 .todo-title {
-  /* ヒント: font-size: 16px */
+  font-size: 16px;
+  line-height: 1.5;
 }
 
-/* --- 8. 完了状態 ---
-   ヒント: 完了アイテムの背景を変え、テキストに取り消し線を引く */
-
+/* --- 完了状態 --- */
 .todo-item.done {
-  /* ヒント: background-color: #f0fdf4, border-color: #bbf7d0 */
+  background-color: #f0fdf4;
+  border-color: #bbf7d0;
 }
 
 .todo-item.done .todo-title {
-  /* ヒント: text-decoration: line-through, color: #9ca3af */
+  text-decoration: line-through;
+  color: #9ca3af;
 }
 
-/* --- 9. 削除ボタン --- */
-
+/* --- 削除ボタン --- */
 .delete-button {
-  /* ヒント: padding: 6px 12px, background-color: transparent
-             color: #9ca3af, border: 1px solid #d1d5db, border-radius: 6px, cursor: pointer */
+  padding: 6px 12px;
+  background-color: transparent;
+  color: #9ca3af;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .delete-button:hover {
-  /* ヒント: background-color: #fef2f2, color: #dc2626, border-color: #fca5a5 */
+  background-color: #fef2f2;
+  color: #dc2626;
+  border-color: #fca5a5;
 }
 
-/* --- 10. 空メッセージ ---
-   ヒント: TODOが0件のときに表示するメッセージ
-           text-align: center, padding: 32px, color: #9ca3af, font-size: 14px */
-
-.empty-message {
-}
-
-/* --- 11. ページフッター --- */
-
+/* --- ページフッター --- */
 .footer {
-  /* ヒント: background-color: #374151, color: #9ca3af
-             text-align: center, padding: 16px, font-size: 14px */
+  background-color: #374151;
+  color: #9ca3af;
+  text-align: center;
+  padding: 16px;
+  font-size: 14px;
 }
 
-/* --- 12. レスポンシブデザイン ---
-   ヒント: @media (max-width: 480px) でスマホ向けスタイルを記述
-           カードのmargin/paddingを小さく、入力エリアを縦並びに */
+/* --- 空メッセージ --- */
+.empty-message {
+  text-align: center;
+  padding: 32px;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+/* --- レスポンシブ --- */
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .todo-card {
+    margin: 12px;
+    padding: 16px;
+  }
+
+  .input-area {
+    flex-direction: column;
+  }
+
+  .todo-button {
+    width: 100%;
+  }
+}
