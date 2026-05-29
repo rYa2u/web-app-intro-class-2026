@@ -1,41 +1,56 @@
 <!doctype html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <title>DOM操作 練習用</title>
-    <style>
-      body {
-        font-family: sans-serif;
-        max-width: 600px;
-        margin: 40px auto;
-        padding: 0 20px;
-      }
-      button {
-        padding: 8px 16px;
-        font-size: 16px;
-        cursor: pointer;
-      }
-      ul {
-        margin-top: 16px;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>DOM操作 練習用ページ</h1>
 
-    <p>
-      「追加」ボタンを押すと、下のリストに新しい項目が追加されるようにしてみましょう。
-    </p>
+<head>
+  <meta charset="UTF-8" />
+  <title>DOM操作 練習用</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
 
-    <button id="add-item-btn">追加</button>
+    button {
+      padding: 8px 16px;
+      font-size: 16px;
+      cursor: pointer;
+    }
 
-    <ul id="item-list">
-      <li>サンプル1</li>
-      <li>サンプル2</li>
-    </ul>
+    ul {
+      margin-top: 16px;
+    }
+  </style>
+</head>
 
-    <script>
-      // ↓↓↓ ここから下に、スライドのコードを書いてください ↓↓↓
-    </script>
-  </body>
+<body>
+  <h1>DOM操作 練習用ページ</h1>
+
+  <p>
+    「追加」ボタンを押すと、下のリストに新しい項目が追加されるようにしてみましょう。
+  </p>
+
+  <button id="add-item-btn">追加</button>
+
+  <ul id="item-list">
+    <li>サンプル1</li>
+    <li>サンプル2</li>
+  </ul>
+
+  <script>
+    // ↓↓↓ ここから下に、スライドのコードを書いてください ↓↓↓
+    const addItemBtn = document.getElementById("add-item-btn");
+    const itemList = document.getElementById("item-list");
+
+    // 「追加」ボタンをクリックしたときの処理
+    addItemBtn.addEventListener("click", () => {
+      // 新しいli要素を作成して追加
+      const newItem = document.createElement("li");
+      newItem.textContent = "OW";
+      itemList.appendChild(newItem);
+    });
+  </script>
+</body>
+
 </html>
