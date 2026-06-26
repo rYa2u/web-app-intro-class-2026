@@ -121,11 +121,11 @@ def delete_todo(todo_id: int):
     return {"message": "TODO deleted", "id": todo_id}
 
 
-# --- TODO: 静的ファイル配信を追加してください（実習6）---
-# TODO(実習6): 静的ファイルを配信してください
+#   --- TODO: 静的ファイル配信を追加してください（実習6）---
+#   TODO(実習6): 静的ファイルを配信してください
 #   ヒント:
-#   app.mount("/", StaticFiles(directory="static", html=True), name="static")
-#
+app.mount("/", StaticFiles(directory="static", html=True), name="static")
+
 # 注意: app.mount() はファイルの最後に書いてください
 
 
